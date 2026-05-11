@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart | Automart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .racing-gradient {
+            background: linear-gradient(135deg, #111111 0%, #000000 100%);
+        }
+    </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans">
+    
+    <!-- TOP NAVIGATION -->
+    <nav class="bg-black border-b border-zinc-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-red-600 rounded flex items-center justify-center -skew-x-12">
+                    <span class="text-white font-black text-xl italic skew-x-12">A</span>
+                </div>
+                <span class="text-2xl font-black tracking-tighter uppercase">Auto<span class="text-red-600">mart</span></span>
+            </a>
+            
+            <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
+                <a href="index.html" class="hover:text-red-500 transition">Browse</a>
+                <a href="#" class="hover:text-red-500 transition">Support</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <button class="text-sm font-bold text-zinc-400 hover:text-white px-4">LOGIN</button>
+                <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-sm font-bold text-sm transition uppercase">Sell Parts</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <header class="racing-gradient py-12 border-b border-zinc-900">
+        <div class="max-w-7xl mx-auto px-4">
+            <h1 class="text-4xl font-black">Your Shopping Cart</h1>
+            <p class="text-zinc-400 mt-2">Review and checkout your selected spare parts</p>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- CART ITEMS -->
+        <section class="lg:col-span-2">
+            <div id="cart-items-container">
+                <!-- Cart items will be rendered here -->
+            </div>
+            
+            <div id="empty-cart" class="bg-zinc-900 border border-zinc-800 p-12 rounded text-center">
+                <div class="text-4xl mb-4">🛒</div>
+                <h2 class="text-2xl font-bold mb-2">Your cart is empty</h2>
+                <p class="text-zinc-400 mb-6">Add some spare parts to get started!</p>
+                <a href="index.html" class="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-3 rounded font-bold uppercase">Continue Shopping</a>
+            </div>
+        </section>
+
+        <!-- SUMMARY SIDEBAR -->
+        <aside class="lg:col-span-1">
+            <div class="bg-zinc-900 border border-zinc-800 p-6 rounded sticky top-24">
+                <h2 class="text-xl font-bold mb-6 border-b border-zinc-800 pb-4">Order Summary</h2>
+                
+                <div class="space-y-4 mb-6">
+                    <div class="flex justify-between text-sm">
+                        <span class="text-zinc-400">Subtotal</span>
+                        <span id="subtotal" class="font-bold">R 0.00</span>
+                    </div>
+                    <div class="flex justify-between text-sm">
+                        <span class="text-zinc-400">Shipping</span>
+                        <span id="shipping" class="font-bold text-green-500">FREE</span>
+                    </div>
+                    <div class="flex justify-between text-sm border-b border-zinc-800 pb-4">
+                        <span class="text-zinc-400">Tax (15%)</span>
+                        <span id="tax" class="font-bold">R 0.00</span>
+                    </div>
+                    <div class="flex justify-between text-lg">
+                        <span class="font-bold">Total</span>
+                        <span id="total" class="font-black text-red-600 text-2xl">R 0.00</span>
+                    </div>
+                </div>
+
+                <button class="w-full bg-red-600 hover:bg-red-700 text-white px-6 py-4 rounded font-bold uppercase mb-3 transition">
+                    Proceed to Checkout
+                </button>
+                <a href="index.html" class="w-full bg-zinc-800 hover:bg-zinc-700 text-white px-6 py-3 rounded font-bold uppercase text-center block transition">
+                    Continue Shopping
+                </a>
+
+                <!-- SECURITY INFO -->
+                <div class="mt-6 pt-6 border-t border-zinc-800">
+                    <p class="text-[10px] text-zinc-500 text-center">
+                        🔒 Secure checkout powered by industry-leading encryption
+                    </p>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-zinc-900 mt-20 py-12">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <span class="text-xl font-black tracking-tighter uppercase mb-4 block">Auto<span class="text-red-600">mart</span></span>
+                <p class="text-zinc-500 text-sm max-w-xs">Connecting the automotive industry through verified spare parts.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4 uppercase text-xs tracking-widest">Legal</h4>
+                <ul class="text-zinc-500 text-sm space-y-2">
+                    <li><a href="#" class="hover:text-red-500">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-red-500">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4 uppercase text-xs tracking-widest">Support</h4>
+                <ul class="text-zinc-500 text-sm space-y-2">
+                    <li><a href="#" class="hover:text-red-500">Contact Us</a></li>
+                    <li><a href="#" class="hover:text-red-500">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Cart rendering
+        function renderCart() {
+            const container = document.getElementById('cart-items-container');
+            const emptyCart = document.getElementById('empty-cart');
+            
+            if (DOM.cart.length === 0) {
+                container.innerHTML = '';
+                emptyCart.style.display = 'block';
+                updateOrderSummary();
+                return;
+            }
+            
+            emptyCart.style.display = 'none';
+            container.innerHTML = DOM.cart.map((item, index) => `
+                <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-sm mb-4 flex gap-4">
+                    <div class="w-24 h-24 bg-zinc-800 rounded flex items-center justify-center text-3xl">
+                        ${item.image}
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-zinc-500 text-xs uppercase font-bold mb-1">${item.make} ${item.model}</p>
+                        <h3 class="text-white font-bold mb-2">${item.name}</h3>
+                        <div class="flex items-center space-x-2 mb-3">
+                            <span class="bg-zinc-800 text-zinc-400 text-xs px-2 py-1 rounded">SKU: ${item.sku}</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xl font-black">R ${item.price.toLocaleString()}</span>
+                            <button onclick="removeFromCart(${index})" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 text-xs font-bold uppercase rounded">
+                                Remove
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            updateOrderSummary();
+        }
+
+        function removeFromCart(index) {
+            DOM.cart.splice(index, 1);
+            DOM.updateCart();
+            renderCart();
+        }
+
+        function updateOrderSummary() {
+            const subtotal = DOM.cart.reduce((sum, item) => sum + item.price, 0);
+            const tax = subtotal * 0.15;
+            const total = subtotal + tax;
+            
+            document.getElementById('subtotal').textContent = `R ${subtotal.toLocaleString('en-ZA', {minimumFractionDigits: 2})}`;
+            document.getElementById('tax').textContent = `R ${tax.toLocaleString('en-ZA', {minimumFractionDigits: 2})}`;
+            document.getElementById('total').textContent = `R ${total.toLocaleString('en-ZA', {minimumFractionDigits: 2})}`;
+        }
+
+        // Render on page load
+        renderCart();
+    </script>
+</body>
+</html>
