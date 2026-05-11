@@ -1,281 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AutoMart - Drive Your Dream</title>
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <style>
-    body{
-      background:#f5f5f5;
-    }
-
-    .hero{
-      background:#111;
-      color:white;
-      padding:80px 20px;
-      text-align:center;
-    }
-
-    .car-card img{
-      height:200px;
-      object-fit:cover;
-    }
-
-    .dashboard-card{
-      border-radius:15px;
-      padding:20px;
-      background:white;
-      box-shadow:0 2px 10px rgba(0,0,0,0.1);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automart | Spares Marketplace</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .racing-gradient {
+            background: linear-gradient(135deg, #111111 0%, #000000 100%);
+        }
+        .part-card:hover {
+            border-color: #dc2626;
+            transform: translateY(-2px);
+        }
+    </style>
 </head>
-<body>
+<body class="bg-zinc-950 text-zinc-100 font-sans">
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container">
-    <a class="navbar-brand fw-bold" href="#">AutoMart</a>
+    <!-- TOP NAVIGATION -->
+    <nav class="bg-black border-b border-zinc-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <div class="w-10 h-10 bg-red-600 rounded flex items-center justify-center -skew-x-12">
+                    <span class="text-white font-black text-xl italic skew-x-12">A</span>
+                </div>
+                <span class="text-2xl font-black tracking-tighter uppercase">Auto<span class="text-red-600">mart</span></span>
+            </div>
+            
+            <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
+                <a href="#" class="hover:text-red-500 transition">B2B Portal</a>
+                <a href="#" class="hover:text-red-500 transition">Verification</a>
+                <a href="#" class="hover:text-red-500 transition">Support</a>
+            </div>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav ms-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="#cars">Cars</a>
-        </li>
-
-        <li class="nav-item">
-          <a class="nav-link" href="#dashboard">Dashboard</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="container">
-    <h1 class="display-4 fw-bold">Welcome to AutoMart</h1>
-    <p class="lead">Buy Your Dream Car Online</p>
-
-    <a href="#cars" class="btn btn-primary btn-lg mt-3">
-      Browse Vehicles
-    </a>
-  </div>
-</section>
-
-<!-- CARS -->
-<section class="container py-5" id="cars">
-
-  <h2 class="mb-4 text-center">Featured Vehicles</h2>
-
-  <div class="row g-4">
-
-    <!-- CAR 1 -->
-    <div class="col-md-4">
-      <div class="card car-card h-100">
-        <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=1200&auto=format&fit=crop" class="card-img-top">
-
-        <div class="card-body">
-          <h5 class="card-title">BMW 320i</h5>
-          <p class="card-text">2022 Model • Automatic • Petrol</p>
-          <h4>R450,000</h4>
-
-          <button class="btn btn-success w-100" onclick="addToCart('BMW 320i')">
-            Add to Cart
-          </button>
+            <div class="flex items-center space-x-4">
+                <button class="text-sm font-bold text-zinc-400 hover:text-white px-4">LOGIN</button>
+                <button class="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-sm font-bold text-sm transition uppercase">Sell Parts</button>
+            </div>
         </div>
-      </div>
-    </div>
+    </nav>
 
-    <!-- CAR 2 -->
-    <div class="col-md-4">
-      <div class="card car-card h-100">
-        <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1200&auto=format&fit=crop" class="card-img-top">
-
-        <div class="card-body">
-          <h5 class="card-title">Ford Mustang</h5>
-          <p class="card-text">2021 Model • Automatic • Petrol</p>
-          <h4>R650,000</h4>
-
-          <button class="btn btn-success w-100" onclick="addToCart('Ford Mustang')">
-            Add to Cart
-          </button>
+    <!-- SEARCH HERO -->
+    <header class="racing-gradient py-16 border-b border-zinc-900">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-black mb-6">FIND THE <span class="text-red-600 underline">EXACT</span> PART.</h1>
+            <p class="text-zinc-400 mb-10">Verified second-hand and new spares marketplace. B2B & B2C.</p>
+            
+            <!-- Spares Search Flow -->
+            <div class="bg-zinc-900 p-2 rounded-lg shadow-2xl flex flex-col md:flex-row gap-2">
+                <select class="bg-zinc-800 border-none rounded p-4 text-white flex-1 focus:ring-2 focus:ring-red-600">
+                    <option>Select Make (e.g. Toyota)</option>
+                </select>
+                <select class="bg-zinc-800 border-none rounded p-4 text-white flex-1 focus:ring-2 focus:ring-red-600">
+                    <option>Select Model (e.g. Hilux)</option>
+                </select>
+                <input type="text" placeholder="Part name (e.g. Alternator)" class="bg-zinc-800 border-none rounded p-4 text-white flex-[2] focus:ring-2 focus:ring-red-600">
+                <button class="bg-red-600 hover:bg-red-700 px-8 py-4 rounded font-bold uppercase tracking-tighter">Search</button>
+            </div>
         </div>
-      </div>
-    </div>
+    </header>
 
-    <!-- CAR 3 -->
-    <div class="col-md-4">
-      <div class="card car-card h-100">
-        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop" class="card-img-top">
+    <!-- MAIN CONTENT -->
+    <main class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
+        <!-- SIDEBAR: FILTERS & COMPLIANCE -->
+        <aside class="space-y-8">
+            <div>
+                <h3 class="text-red-600 font-bold uppercase text-xs tracking-widest mb-4 border-l-2 border-red-600 pl-2">Filter by Condition</h3>
+                <div class="space-y-2">
+                    <label class="flex items-center space-x-3 text-sm text-zinc-400 hover:text-white cursor-pointer">
+                        <input type="checkbox" class="accent-red-600 w-4 h-4"> <span>New (OEM)</span>
+                    </label>
+                    <label class="flex items-center space-x-3 text-sm text-zinc-400 hover:text-white cursor-pointer">
+                        <input type="checkbox" class="accent-red-600 w-4 h-4"> <span>New (Aftermarket)</span>
+                    </label>
+                    <label class="flex items-center space-x-3 text-sm text-zinc-400 hover:text-white cursor-pointer">
+                        <input type="checkbox" checked class="accent-red-600 w-4 h-4"> <span>Second-Hand</span>
+                    </label>
+                </div>
+            </div>
 
-        <div class="card-body">
-          <h5 class="card-title">Mercedes C200</h5>
-          <p class="card-text">2023 Model • Automatic • Diesel</p>
-          <h4>R720,000</h4>
+            <!-- REGULATION INFO BOX -->
+            <div class="bg-zinc-900 border border-zinc-800 p-5 rounded">
+                <h4 class="text-white font-bold text-sm mb-3 uppercase flex items-center">
+                    <svg class="w-4 h-4 mr-2 text-red-600" fill="currentColor" viewBox="0 0 20 20"><path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path></svg>
+                    Compliance Guard
+                </h4>
+                <p class="text-xs text-zinc-500 leading-relaxed">
+                    In accordance with the <strong>Second-Hand Goods Act</strong>, all used parts are verified against the SAPS database. Automart facilitates trade but does not provide mechanical warranties.
+                </p>
+                <div class="mt-4 pt-4 border-t border-zinc-800">
+                    <p class="text-[10px] text-zinc-600 uppercase tracking-tighter">Liability Status: Limited</p>
+                </div>
+            </div>
+        </aside>
 
-          <button class="btn btn-success w-100" onclick="addToCart('Mercedes C200')">
-            Add to Cart
-          </button>
+        <!-- PRODUCT GRID -->
+        <section class="lg:col-span-3">
+            <div class="flex justify-between items-end mb-8 border-b border-zinc-900 pb-4">
+                <h2 class="text-xl font-bold">Recommended Spares <span class="text-zinc-600 text-sm font-normal">(Showing 124 results)</span></h2>
+                <span class="text-red-500 text-sm font-bold cursor-pointer">View All →</span>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <!-- PART CARD EXAMPLE -->
+                <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-sm part-card transition duration-300">
+                    <div class="h-40 bg-zinc-800 rounded mb-4 overflow-hidden relative">
+                        <span class="absolute top-2 right-2 bg-red-600 text-[10px] font-bold px-2 py-1 rounded">USED</span>
+                        <div class="w-full h-full flex items-center justify-center text-zinc-700 font-bold italic">PART IMAGE</div>
+                    </div>
+                    <p class="text-zinc-500 text-[10px] uppercase font-bold tracking-widest mb-1">Toyota Hilux (2018-2022)</p>
+                    <h3 class="text-white font-bold text-lg leading-tight mb-2">Left Side Front Fender - White</h3>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="bg-zinc-800 text-green-500 text-[10px] font-mono px-2 py-0.5 rounded">VIN-MATCHED</span>
+                        <span class="bg-zinc-800 text-zinc-400 text-[10px] font-mono px-2 py-0.5 rounded">SKU: 992-TH</span>
+                    </div>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-2xl font-black text-white">R 2,450</span>
+                        <button class="bg-zinc-100 text-black hover:bg-red-600 hover:text-white px-4 py-2 text-xs font-black uppercase transition-colors">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Repeat Card (Simplified) -->
+                <div class="bg-zinc-900 border border-zinc-800 p-4 rounded-sm part-card transition duration-300">
+                    <div class="h-40 bg-zinc-800 rounded mb-4 overflow-hidden relative">
+                        <span class="absolute top-2 right-2 bg-zinc-100 text-black text-[10px] font-bold px-2 py-1 rounded">NEW</span>
+                        <div class="w-full h-full flex items-center justify-center text-zinc-700 font-bold italic">PART IMAGE</div>
+                    </div>
+                    <p class="text-zinc-500 text-[10px] uppercase font-bold tracking-widest mb-1">VW Golf 7 (TSI)</p>
+                    <h3 class="text-white font-bold text-lg leading-tight mb-2">OEM Ignition Coil Pack (Set of 4)</h3>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <span class="bg-zinc-800 text-green-500 text-[10px] font-mono px-2 py-0.5 rounded">OEM CERTIFIED</span>
+                    </div>
+                    <div class="flex justify-between items-center mt-4">
+                        <span class="text-2xl font-black text-white">R 3,800</span>
+                        <button class="bg-zinc-100 text-black hover:bg-red-600 hover:text-white px-4 py-2 text-xs font-black uppercase transition-colors">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-black border-t border-zinc-900 mt-20 py-12">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div class="col-span-1 md:col-span-2">
+                <span class="text-xl font-black tracking-tighter uppercase mb-4 block">Auto<span class="text-red-600">mart</span></span>
+                <p class="text-zinc-500 text-sm max-w-xs">Connecting the automotive industry through verified spare parts. From scrapyards to workshops.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4 uppercase text-xs tracking-widest">Legal</h4>
+                <ul class="text-zinc-500 text-sm space-y-2">
+                    <li><a href="#" class="hover:text-red-500">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-red-500">CPA Disclosure</a></li>
+                    <li><a href="#" class="hover:text-red-500">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-white mb-4 uppercase text-xs tracking-widest">Business</h4>
+                <ul class="text-zinc-500 text-sm space-y-2">
+                    <li><a href="#" class="hover:text-red-500">B2B Registration</a></li>
+                    <li><a href="#" class="hover:text-red-500">Logistics Partners</a></li>
+                    <li><a href="#" class="hover:text-red-500">Contact Us</a></li>
+                </ul>
+            </div>
         </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- CART -->
-<section class="container py-5">
-
-  <div class="card p-4">
-    <h2>Shopping Cart</h2>
-
-    <ul id="cartItems" class="list-group mb-3"></ul>
-
-    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#checkoutModal">
-      Proceed to Checkout
-    </button>
-  </div>
-
-</section>
-
-<!-- DASHBOARD -->
-<section class="container py-5" id="dashboard">
-
-  <h2 class="mb-4 text-center">Admin Dashboard</h2>
-
-  <div class="row g-4">
-
-    <div class="col-md-4">
-      <div class="dashboard-card text-center">
-        <h3>12</h3>
-        <p>Total Orders</p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="dashboard-card text-center">
-        <h3>8</h3>
-        <p>Vehicles Listed</p>
-      </div>
-    </div>
-
-    <div class="col-md-4">
-      <div class="dashboard-card text-center">
-        <h3>R2.4M</h3>
-        <p>Total Revenue</p>
-      </div>
-    </div>
-
-  </div>
-
-</section>
-
-<!-- CHECKOUT MODAL -->
-<div class="modal fade" id="checkoutModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <h5 class="modal-title">Checkout</h5>
-      </div>
-
-      <div class="modal-body">
-
-        <input type="text" class="form-control mb-3" placeholder="Full Name">
-
-        <input type="email" class="form-control mb-3" placeholder="Email Address">
-
-        <input type="text" class="form-control mb-3" placeholder="Delivery Address">
-
-        <hr>
-
-        <h5>Payment Information</h5>
-
-        <input type="text" class="form-control mb-3" placeholder="Card Number">
-
-        <input type="text" class="form-control mb-3" placeholder="Expiry Date">
-
-        <input type="text" class="form-control mb-3" placeholder="CVV">
-
-        <button class="btn btn-success w-100" onclick="processPayment()">
-          Pay Now
-        </button>
-
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<!-- SUCCESS MODAL -->
-<div class="modal fade" id="successModal">
-  <div class="modal-dialog">
-    <div class="modal-content text-center p-5">
-
-      <h1>✅</h1>
-
-      <h2>Payment Successful!</h2>
-
-      <p>Your order has been processed successfully.</p>
-
-    </div>
-  </div>
-</div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-<script>
-
-  const cart = [];
-
-  function addToCart(car){
-
-    cart.push(car);
-
-    renderCart();
-
-  }
-
-  function renderCart(){
-
-    const cartItems = document.getElementById("cartItems");
-
-    cartItems.innerHTML = "";
-
-    cart.forEach(item => {
-
-      cartItems.innerHTML += `
-        <li class="list-group-item">
-          ${item}
-        </li>
-      `;
-
-    });
-
-  }
-
-  function processPayment(){
-
-    const checkoutModal =
-      bootstrap.Modal.getInstance(document.getElementById('checkoutModal'));
-
-    checkoutModal.hide();
-
-    const successModal =
-      new bootstrap.Modal(document.getElementById('successModal'));
-
-    successModal.show();
-
-  }
-
-</script>
+    </footer>
 
 </body>
 </html>
