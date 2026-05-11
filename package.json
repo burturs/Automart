@@ -1,0 +1,30 @@
+{
+  "name": "automart-spares-marketplace",
+  "version": "1.0.0",
+  "description": "A modern automotive spare parts marketplace - buy and sell verified second-hand and new car parts",
+  "main": "app.js",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "open http://localhost:8000 && python -m http.server 8000"
+  },
+  "keywords": [
+    "automotive",
+    "spare-parts",
+    "marketplace",
+    "e-commerce",
+    "south-africa"
+  ],
+  "author": "burturs",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/burturs/Automart.git"
+  },
+  "bugs": {
+    "url": "https://github.com/burturs/Automart/issues"
+  },
+  "homepage": "https://github.com/burturs/Automart",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
